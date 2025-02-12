@@ -1,5 +1,8 @@
 # DVeliks_ACubacins_DP2-2
-##STRUCTURE
+
+## 📂 Project Structure: Smart Habit Tracker  
+
+```
 SmartHabitTracker/
 │── src/
 │   ├── main/
@@ -10,11 +13,14 @@ SmartHabitTracker/
 │   │   │   ├── HabitService.java
 │   │   │   ├── FileService.java
 │   │   ├── ui/            # (User interface)
-│   │   │   ├── ConsoleUI.java  # CLI version
-│   │   │   ├── HabitTrackerApp.java # JavaFX version (if needed)
-│   │   ├── SmartHabitTracker.java  # Main entry point
+│   │   │   ├── ConsoleUI.java        # CLI version
+│   │   │   ├── HabitTrackerApp.java  # JavaFX version (if needed)
+│   │   ├── SmartHabitTracker.java    # Main entry point
 │── data/
 │   ├── habits.json  # Stores habit data
 │── README.md        # Project description
 │── .gitignore       # Ignore unnecessary files
 │── SmartHabitTracker.iml  # Project configuration
+```
+
+
