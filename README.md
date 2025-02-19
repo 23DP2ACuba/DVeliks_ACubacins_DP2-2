@@ -17,7 +17,7 @@ SmartHabitTracker/
 │   │   │   ├── HabitTrackerApp.java  # JavaFX version (if needed)
 │   │   ├── SmartHabitTracker.java    # Main entry point
 │── data/
-│   ├── habits.json  # Stores habit data
+│   ├── habits.csv  # Stores habit data
 │── README.md        # Project description
 │── .gitignore       # Ignore unnecessary files
 │── SmartHabitTracker.iml  # Project configuration
