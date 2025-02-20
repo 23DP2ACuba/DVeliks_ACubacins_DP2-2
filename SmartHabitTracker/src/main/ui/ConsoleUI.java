@@ -1,5 +1,5 @@
+package main.ui;
 import java.util.Scanner;
-
 public class ConsoleUI {
     private final HabitService habitService;
     private final Scanner scanner;
