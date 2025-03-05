@@ -1,26 +1,26 @@
-# DVeliks_ACubacins_DP2-2
+# Smart Habit Tracker
 
-## 📂 Project Structure: Smart Habit Tracker  
+## Description
+Smart Habit Tracker is a simple yet effective habit tracking application that helps users monitor their daily habits and progress over time. The application uses a CSV file to store habit data, ensuring ease of use and portability.
 
-```
-SmartHabitTracker/
-│── src/
-│   ├── main/
-│   │   ├── model/         # (Data models)
-│   │   │   ├── Habit.java
-│   │   │   ├── User.java
-│   │   ├── service/       # (Business logic)
-│   │   │   ├── HabitService.java
-│   │   │   ├── FileService.java
-│   │   ├── ui/            # (User interface)
-│   │   │   ├── ConsoleUI.java        # CLI version
-│   │   │   ├── HabitTrackerApp.java  # JavaFX version (if needed)
-│   │   ├── SmartHabitTracker.java    # Main entry point
-│── data/
-│   ├── habits.csv  # Stores habit data
-│── README.md        # Project description
-│── .gitignore       # Ignore unnecessary files
-│── SmartHabitTracker.iml  # Project configuration
-```
+## Features
+- Add new habits with custom names.
+- Mark habits as completed for each day.
+- View habit history and progress.
+- Export and import data using CSV format.
+
+
+## File Structure
+- `src/` - Contains the Java source code.
+- `data/habits.csv` - Stores habit tracking data.
+- `README.md` - This file.
+
+## Future Improvements
+- Implement database support for better data management.
+- Add graphical statistics and reports.
+- Integrate notifications/reminders.
+
+## Contributors
+- **Daniels Veliks un Artjoms Čubačins**
 
 
