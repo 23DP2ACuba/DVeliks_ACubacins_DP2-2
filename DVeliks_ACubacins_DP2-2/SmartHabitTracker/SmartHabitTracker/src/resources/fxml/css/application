@@ -1,0 +1,46 @@
+.root {
+    -fx-background-color: #f0f4f8;
+    -fx-font-family: 'Segoe UI';
+}
+
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.action-button {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-padding: 8px 15px;
+}
+
+.action-button:hover {
+    -fx-background-color: #2980b9;
+}
+
+.summary-label {
+    -fx-font-weight: bold;
+}
+
+.summary-value {
+    -fx-text-fill: #2ecc71;
+}
+
+.table-view {
+    -fx-background-color: white;
+}
+
+.dialog-root {
+    -fx-background-color: #ecf0f1;
+}
+
+.save-button {
+    -fx-background-color: #2ecc71;
+    -fx-text-fill: white;
+}
+
+.cancel-button {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+}
