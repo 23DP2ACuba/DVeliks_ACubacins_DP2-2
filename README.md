@@ -15,10 +15,6 @@ Smart Habit Tracker is a simple yet effective habit tracking application that he
 - `data/habits.csv` - Stores habit tracking data.
 - `README.md` - This file.
 
-## Future Improvements
-- Implement database support for better data management.
-- Add graphical statistics and reports.
-- Integrate notifications/reminders.
 
 ## Contributors
 - **Daniels Veliks un Artjoms Čubačins**
