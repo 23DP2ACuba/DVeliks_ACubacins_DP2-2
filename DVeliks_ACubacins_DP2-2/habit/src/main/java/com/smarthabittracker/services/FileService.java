@@ -1,10 +1,8 @@
 package com.smarthabittracker.services;
 
 import com.smarthabittracker.model.Habit;
-import com.smarthabittracker.model.User;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +10,6 @@ public class FileService {
     private static final String DATA_DIRECTORY = "data";
     private static final String HABITS_FILE = DATA_DIRECTORY + "/habits.csv";
 
-    // Ensure data directory exists
     static {
         File directory = new File(DATA_DIRECTORY);
         if (!directory.exists()) {
@@ -20,7 +17,6 @@ public class FileService {
         }
     }
 
-    // Save habits to CSV
     public static void saveHabits(List<Habit> habits) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(HABITS_FILE))) {
             for (Habit habit : habits) {
@@ -32,7 +28,6 @@ public class FileService {
         }
     }
 
-    // Read habits from CSV
     public static List<Habit> loadHabits() {
         List<Habit> habits = new ArrayList<>();
         
@@ -56,7 +51,6 @@ public class FileService {
         return habits;
     }
 
-    // Format habit for CSV storage
     private static String formatHabitForCSV(Habit habit) {
         return String.format("%s,%b,%s,%d,%s", 
             habit.getName(), 
@@ -66,14 +60,12 @@ public class FileService {
             habit.getDescription() != null ? habit.getDescription() : "");
     }
 
-    // Parse habit from CSV line
     private static Habit parseHabitFromCSV(String line) {
         try {
             String[] parts = line.split(",");
             if (parts.length >= 4) {
                 Habit habit = new Habit(parts[0]);
                 habit.setCompleted(Boolean.parseBoolean(parts[1]));
-                // Note: In a real-world scenario, you might want to handle date parsing more robustly
                 habit.setDescription(parts.length > 4 ? parts[4] : "");
                 return habit;
             }

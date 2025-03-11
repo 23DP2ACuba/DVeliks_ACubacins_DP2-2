@@ -9,13 +9,20 @@ import javafx.stage.Stage;
 public class SmartHabitTrackerApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smarthabittracker/ui/MainHabitTracker.fxml"));
+        System.out.println("Loading FXML: " + getClass().getResource("resources/com/smarthabittracker/ui/MainHabitTracker.fxml"));
+    
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/com/smarthabittracker/ui/MainHabitTracker.fxml"));
+        if (loader.getLocation() == null) {
+            throw new IllegalStateException("FXML file not found!");
+        }
+    
         Parent root = loader.load();
         Scene scene = new Scene(root);
         primaryStage.setTitle("Smart Habit Tracker");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+    
 
     public static void main(String[] args) {
         launch(args);

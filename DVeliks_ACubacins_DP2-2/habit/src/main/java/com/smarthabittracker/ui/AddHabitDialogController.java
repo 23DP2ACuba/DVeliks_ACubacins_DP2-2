@@ -25,11 +25,10 @@ public class AddHabitDialogController {
     @FXML
     private void saveHabit() {
         Habit newHabit = new Habit(habitNameField.getText());
-        newHabit.setDescription(habitDescriptionArea.getText()); // Set the description
+        newHabit.setDescription(habitDescriptionArea.getText());
         habitService.addHabit(newHabit);
         dialogStage.close();
-        mainController.refreshHabitList(); // Use this if you chose Solution 1
-        mainController.updateHabitList();
+        mainController.refreshHabitList();
     }
 
     @FXML

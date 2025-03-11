@@ -68,7 +68,7 @@ public class HabitTrackerController {
         });
     }
 
-    private void refreshHabitList() {
+    public void refreshHabitList() {
         habitTableView.getItems().setAll(habitService.getAllHabits());
         totalHabitsLabel.setText(String.valueOf(habitService.getAllHabits().size()));
         completedHabitsLabel.setText(String.valueOf(
@@ -81,7 +81,7 @@ public class HabitTrackerController {
     @FXML
 public void openAddHabitDialog() {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/java/com/smarthabittracker/ui/AddHabitDialog.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smarthabittracker/ui/AddHabitDialog.fxml"));
         Parent root = loader.load();
         
         Stage dialogStage = new Stage();

@@ -7,7 +7,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.property.*;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -18,24 +17,20 @@ public class Habit {
     private final IntegerProperty streak = new SimpleIntegerProperty(0);
     private final StringProperty description = new SimpleStringProperty();
 
-    // Default constructor
     public Habit() {
         this.createdDate.set(LocalDate.now());
     }
 
-    // Parameterized constructor with name
     public Habit(String name) {
         this();
         this.name.set(name);
     }
 
-    // Full constructor with name and description
     public Habit(String name, String description) {
         this(name);
         this.description.set(description);
     }
 
-    // JavaFX Property methods (required for TableView binding)
     public StringProperty nameProperty() {
         return name;
     }
@@ -56,7 +51,6 @@ public class Habit {
         return description;
     }
 
-    // Getters and Setters
     public String getName() {
         return name.get();
     }
@@ -71,7 +65,7 @@ public class Habit {
 
     public void setCompleted(boolean completed) {
         this.completed.set(completed);
-        if (completed && !this.completed.get()) { // Only increment if changing from false to true
+        if (completed && !this.completed.get()) { 
             this.streak.set(this.streak.get() + 1);
         }
     }
@@ -100,7 +94,6 @@ public class Habit {
         this.description.set(description);
     }
 
-    // ToString method for easy printing
     @Override
     public String toString() {
         return "Habit{" +
@@ -112,7 +105,6 @@ public class Habit {
                 '}';
     }
 
-    // Equals and HashCode for comparing habits
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
