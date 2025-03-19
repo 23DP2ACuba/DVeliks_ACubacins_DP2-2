@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileService {
     private static final String DATA_DIRECTORY = "data";
-    private static final String HABITS_FILE = DATA_DIRECTORY + "/habits.csv";
+    private static final String HABITS_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data/habits.csv";
 
     static {
         File directory = new File(DATA_DIRECTORY);

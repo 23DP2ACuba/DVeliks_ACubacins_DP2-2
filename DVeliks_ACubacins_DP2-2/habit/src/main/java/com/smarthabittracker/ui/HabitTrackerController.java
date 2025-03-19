@@ -81,7 +81,7 @@ public class HabitTrackerController {
     @FXML
 public void openAddHabitDialog() {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/smarthabittracker/ui/AddHabitDialog.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("resources/com/smarthabittracker/ui/AddHabitDialog.fxml"));
         Parent root = loader.load();
         
         Stage dialogStage = new Stage();
