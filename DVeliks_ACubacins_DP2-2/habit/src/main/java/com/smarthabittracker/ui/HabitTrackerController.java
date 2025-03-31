@@ -31,7 +31,7 @@ public class HabitTrackerController {
         refreshHabitList();
     }
 
-    private void setupTableColumns() {
+    public void setupTableColumns() {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         statusColumn.setCellValueFactory(cellData -> cellData.getValue().completedProperty());
         streakColumn.setCellValueFactory(cellData -> cellData.getValue().streakProperty().asObject());
@@ -76,6 +76,7 @@ public class HabitTrackerController {
                 .filter(Habit::isCompleted)
                 .count()
         ));
+        System.out.println("refreshed table");
     }
 
     @FXML
