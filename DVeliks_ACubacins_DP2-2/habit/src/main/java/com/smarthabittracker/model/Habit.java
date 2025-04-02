@@ -64,8 +64,8 @@ public class Habit {
     }
 
     public void setCompleted(boolean completed) {
-        this.completed.set(completed);
-        if (completed && !this.completed.get()) { 
+        if (completed) { 
+            this.completed.set(completed);
             this.streak.set(this.streak.get() + 1);
         }
     }

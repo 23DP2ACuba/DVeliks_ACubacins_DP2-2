@@ -43,12 +43,7 @@ public class HabitTrackerController {
             {
                 completeButton.setOnAction(event -> {
                     Habit habit = getTableView().getItems().get(getIndex());
-                    if (!habit.isCompleted()) {
-                        habit.setStreak(habit.getStreak() + 1);
-                        habit.setCompleted(true);
-                    } else {
-                        habit.setStreak(habit.getStreak());
-                    }
+                    habit.setCompleted(true);
                     System.out.println(habit);
                     habitService.updateHabit(habit);
                     refreshHabitList();
