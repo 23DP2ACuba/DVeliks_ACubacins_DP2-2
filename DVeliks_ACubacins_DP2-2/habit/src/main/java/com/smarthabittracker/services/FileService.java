@@ -9,6 +9,7 @@ import java.util.List;
 public class FileService {
     private static final String DATA_DIRECTORY = "data";
     private static final String HABITS_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data/habits.csv";
+    private static final String HISTORY_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data/history.csv";
 
     static {
         File directory = new File(DATA_DIRECTORY);
@@ -19,6 +20,17 @@ public class FileService {
 
     public static void saveHabits(List<Habit> habits) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(HABITS_FILE))) {
+            for (Habit habit : habits) {
+                writer.write(formatHabitForCSV(habit));
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving habits: " + e.getMessage());
+        }
+    }
+
+    public static void saveHistory(List<Habit> habits) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(HISTORY_FILE))) {
             for (Habit habit : habits) {
                 writer.write(formatHabitForCSV(habit));
                 writer.newLine();

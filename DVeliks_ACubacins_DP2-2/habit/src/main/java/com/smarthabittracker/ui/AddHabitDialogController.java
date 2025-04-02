@@ -27,8 +27,8 @@ public class AddHabitDialogController {
         Habit newHabit = new Habit(habitNameField.getText());
         newHabit.setDescription(habitDescriptionArea.getText());
         habitService.addHabit(newHabit);
+        mainController.initialize();
         dialogStage.close();
-        mainController.refreshHabitList();
     }
 
     @FXML

@@ -31,7 +31,7 @@ public class HabitTrackerController {
         refreshHabitList();
     }
 
-    private void setupTableColumns() {
+    public void setupTableColumns() {
         nameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
         statusColumn.setCellValueFactory(cellData -> cellData.getValue().completedProperty());
         streakColumn.setCellValueFactory(cellData -> cellData.getValue().streakProperty().asObject());
@@ -43,7 +43,13 @@ public class HabitTrackerController {
             {
                 completeButton.setOnAction(event -> {
                     Habit habit = getTableView().getItems().get(getIndex());
-                    habit.setCompleted(true);
+                    if (!habit.isCompleted()) {
+                        habit.setStreak(habit.getStreak() + 1);
+                        habit.setCompleted(true);
+                    } else {
+                        habit.setStreak(habit.getStreak());
+                    }
+                    System.out.println(habit);
                     habitService.updateHabit(habit);
                     refreshHabitList();
                 });
