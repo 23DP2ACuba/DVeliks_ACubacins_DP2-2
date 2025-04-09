@@ -12,7 +12,6 @@ public class AddHabitDialogController {
     @FXML private TextArea habitDescriptionArea;
     private Stage dialogStage;
     private HabitTrackerController mainController;
-    private HabitService habitService = new HabitService();
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
@@ -26,8 +25,8 @@ public class AddHabitDialogController {
     private void saveHabit() {
         Habit newHabit = new Habit(habitNameField.getText());
         newHabit.setDescription(habitDescriptionArea.getText());
-        habitService.addHabit(newHabit);
-        mainController.initialize();
+        mainController.habitService.addHabit(newHabit);
+        mainController.refreshHabitList();
         dialogStage.close();
     }
 

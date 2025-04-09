@@ -22,7 +22,7 @@ public class HabitTrackerController {
     @FXML private Label totalHabitsLabel;
     @FXML private Label completedHabitsLabel;
 
-    private HabitService habitService;
+    public HabitService habitService;
 
     @FXML
     public void initialize() {

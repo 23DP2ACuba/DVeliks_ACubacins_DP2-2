@@ -79,6 +79,7 @@ public class Habit {
     }
 
     public int getStreak() {
+        System.out.println("Streak: " + streak.get());
         return streak.get();
     }
 
