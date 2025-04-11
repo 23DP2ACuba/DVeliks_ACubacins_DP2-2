@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Habit Tracker</title>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-check-circle"></i>
+                <h1>Smart Habit Tracker</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#demo" class="nav-link">Demo</a></li>
+                    <li><a href="#instructions" class="nav-link">How To Use</a></li>
+                    <li><a href="#download" class="nav-link">Download</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Track Your Habits,<br>Transform Your Life</h1>
+                <p>A simple yet powerful tool to help you build and maintain good habits consistently.</p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">Download Now</a>
+                    <a href="#demo" class="btn btn-secondary">See Demo</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="/api/placeholder/500/400" alt="Smart Habit Tracker Dashboard" />
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Key Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Custom Habits</h3>
+                    <p>Create and customize habits that matter most to your personal goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Daily Tracking</h3>
+                    <p>Mark habits as completed each day and build your streak.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Progress Insights</h3>
+                    <p>View your habit history and progress over time with simple visuals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-csv"></i>
+                    </div>
+                    <h3>CSV Support</h3>
+                    <p>Export and import your data using CSV format for easy backup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2>See It In Action</h2>
+            <div class="demo-content">
+                <div class="demo-tabs">
+                    <button class="tab-btn active" data-tab="add-habit">Add Habit</button>
+                    <button class="tab-btn" data-tab="track-habit">Track Daily</button>
+                    <button class="tab-btn" data-tab="view-progress">View Progress</button>
+                </div>
+                <div class="demo-panel">
+                    <div class="tab-content active" id="add-habit">
+                        <div class="demo-image">
+                            <img src="/api/placeholder/600/350" alt="Adding a new habit" />
+                        </div>
+                        <div class="demo-description">
+                            <h3>Create Custom Habits</h3>
+                            <p>Define new habits with personalized names, goals, and frequency. Start with simple habits and gradually build your routine.</p>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="track-habit">
+                        <div class="demo-image">
+                            <img src="/api/placeholder/600/350" alt="Tracking daily habits" />
+                        </div>
+                        <div class="demo-description">
+                            <h3>Track Daily Progress</h3>
+                            <p>Easily mark habits as completed each day. The intuitive interface makes daily tracking quick and satisfying.</p>
+                        </div>
+                    </div>
+                    <div class="tab-content" id="view-progress">
+                        <div class="demo-image">
+                            <img src="/api/placeholder/600/350" alt="Viewing habit progress" />
+                        </div>
+                        <div class="demo-description">
+                            <h3>Monitor Your Progress</h3>
+                            <p>View detailed statistics and visual representations of your habit history to stay motivated and see your improvement over time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="instructions" class="instructions">
+        <div class="container">
+            <h2>How To Use Smart Habit Tracker</h2>
+            <div class="instructions-container">
+                <div class="instructions-grid" id="instructions-grid">
+                    <!-- Initial instruction cards - these will be duplicated by JavaScript for infinite scroll -->
+                    <!-- Cards will be loaded dynamically via JavaScript -->
+                </div>
+                <!-- Loading indicator for infinite scroll -->
+                <div class="loading-indicator" id="loading-indicator">
+                    <i class="fas fa-spinner fa-spin"></i> Loading more...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <h2>Download Smart Habit Tracker</h2>
+            <p>Get started on your journey to better habits today. Our application is lightweight and easy to install.</p>
+            <div class="download-options">
+                <div class="download-card">
+                    <div class="download-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3>Smart Habit Tracker v1.0</h3>
+                    <p>Developed by Daniels Veliks & Artjoms Čubačins</p>
+                    <a href="src/SmartHabitTracker.jar" class="btn btn-primary download-btn" download>
+                        <i class="fas fa-download"></i> Download JAR
+                    </a>
+                    <p class="file-info">File size: 2.4 MB | Java Application</p>
+                </div>
+                <div class="download-requirements">
+                    <h3>System Requirements</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Java Runtime Environment 8+</li>
+                        <li><i class="fas fa-check"></i> Windows, macOS, or Linux</li>
+                        <li><i class="fas fa-check"></i> 50MB free disk space</li>
+                        <li><i class="fas fa-check"></i> 512MB RAM</li>
+                    </ul>
+                    <h3>Getting Started</h3>
+                    <ol>
+                        <li>Download the JAR file</li>
+                        <li>Double-click to run (or use <code>java -jar SmartHabitTracker.jar</code>)</li>
+                        <li>Start tracking your habits!</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Smart Habit Tracker</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Features</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#instructions">How To Use</a>
+                    <a href="#download">Download</a>
+                </div>
+            </div>
+            <div class="footer-credits">
+                <p>&copy; 2025 Smart Habit Tracker. Created by Daniels Veliks & Artjoms Čubačins.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="src/js/script.js"></script>
+</body>
+</html>
