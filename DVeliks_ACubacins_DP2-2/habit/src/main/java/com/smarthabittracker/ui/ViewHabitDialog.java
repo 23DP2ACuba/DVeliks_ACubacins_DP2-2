@@ -23,7 +23,6 @@ public class ViewHabitDialog {
         dialogStage.initOwner(owner);
         dialogStage.initModality(Modality.APPLICATION_MODAL);
         
-        // Create dialog content
         VBox root = new VBox(10);
         root.setPadding(new Insets(20));
         

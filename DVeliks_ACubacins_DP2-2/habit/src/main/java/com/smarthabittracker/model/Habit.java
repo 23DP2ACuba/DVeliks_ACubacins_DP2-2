@@ -62,15 +62,11 @@ public class Habit {
         LocalDate today = LocalDate.now();
         
         if (lastCompletedDate == null) {
-            // First time completing the habit
             streak = 1;
         } else if (today.equals(lastCompletedDate)) {
-            // Already completed today, no streak change
         } else if (today.equals(lastCompletedDate.plusDays(1))) {
-            // Completed on consecutive day, increase streak
             streak++;
         } else {
-            // Streak broken, restart at 1
             streak = 1;
         }
         

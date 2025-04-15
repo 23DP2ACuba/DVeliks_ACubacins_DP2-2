@@ -14,7 +14,6 @@ public class HabitService {
     private static final String DATA_FILE = "data.csv";
     
     public HabitService() {
-        // Create data file if it doesn't exist
         try {
             File file = new File(DATA_FILE);
             if (!file.exists()) {
@@ -28,7 +27,6 @@ public class HabitService {
     public List<Habit> getAllHabits() throws IOException {
         List<Habit> habits = new ArrayList<>();
         
-        // Check if file is empty
         if (Files.size(Paths.get(DATA_FILE)) == 0) {
             return habits;
         }

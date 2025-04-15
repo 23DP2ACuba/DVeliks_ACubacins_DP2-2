@@ -3,15 +3,12 @@ package com.smarthabittracker.ui;
 import com.smarthabittracker.model.Habit;
 import com.smarthabittracker.services.HabitService;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Optional;
 
 public class AddHabitDialog extends Dialog<Boolean> {
 
@@ -22,12 +19,10 @@ public class AddHabitDialog extends Dialog<Boolean> {
     public AddHabitDialog(Stage owner, HabitService habitService) {
         this.habitService = habitService;
         
-        // Configure dialog
         setTitle("Add New Habit");
         initOwner(owner);
         initModality(Modality.APPLICATION_MODAL);
         
-        // Create dialog content
         GridPane grid = new GridPane();
         grid.setHgap(10);
         grid.setVgap(10);
@@ -47,12 +42,10 @@ public class AddHabitDialog extends Dialog<Boolean> {
         
         getDialogPane().setContent(grid);
         
-        // Add buttons
         ButtonType saveButtonType = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancelButtonType = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         getDialogPane().getButtonTypes().addAll(saveButtonType, cancelButtonType);
         
-        // Convert the result to boolean
         setResultConverter(dialogButton -> {
             if (dialogButton == saveButtonType) {
                 return saveHabit();

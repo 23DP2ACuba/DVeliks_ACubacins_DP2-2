@@ -33,26 +33,21 @@ public class HabitTrackerUI extends Application {
         
         primaryStage.setTitle("Smart Habit Tracker");
         
-        // Initialize UI components
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(10));
         
-        // Create top section with title and buttons
         VBox topSection = createTopSection();
         root.setTop(topSection);
         
-        // Create table view for habits
         habitTable = createHabitTable();
         root.setCenter(habitTable);
         
-        // Create bottom status section
         HBox bottomSection = createBottomSection();
         root.setBottom(bottomSection);
         
         Scene scene = new Scene(root, 600, 500);
         primaryStage.setScene(scene);
         
-        // Load saved habits
         loadHabits();
         
         primaryStage.show();
@@ -91,7 +86,6 @@ public class HabitTrackerUI extends Application {
     private TableView<Habit> createHabitTable() {
         TableView<Habit> table = new TableView<>();
         
-        // Configure table columns
         TableColumn<Habit, String> nameColumn = new TableColumn<>("Habit Name");
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         nameColumn.setPrefWidth(150);
@@ -112,24 +106,22 @@ public class HabitTrackerUI extends Application {
             private final HBox pane = new HBox(5, completeButton, deleteButton);
             
             {
-                // Complete button action
                 completeButton.setOnAction(event -> {
                     Habit habit = getTableView().getItems().get(getIndex());
                     try {
                         habitService.completeHabit(habit);
-                        loadHabits(); // Refresh the table
+                        loadHabits();
                     } catch (IOException e) {
                         showAlert(Alert.AlertType.ERROR, "Error", 
                                   "Failed to complete habit: " + e.getMessage());
                     }
                 });
                 
-                // Delete button action
                 deleteButton.setOnAction(event -> {
                     Habit habit = getTableView().getItems().get(getIndex());
                     try {
                         habitService.deleteHabit(habit);
-                        loadHabits(); // Refresh the table
+                        loadHabits(); 
                     } catch (IOException e) {
                         showAlert(Alert.AlertType.ERROR, "Error", 
                                   "Failed to delete habit: " + e.getMessage());
@@ -165,7 +157,7 @@ public class HabitTrackerUI extends Application {
         AddHabitDialog dialog = new AddHabitDialog(primaryStage, habitService);
         dialog.showAndWait().ifPresent(result -> {
             if (result) {
-                loadHabits(); // Refresh table if habit was added
+                loadHabits(); 
             }
         });
     }
@@ -181,7 +173,6 @@ public class HabitTrackerUI extends Application {
             habitData = FXCollections.observableArrayList(habits);
             habitTable.setItems(habitData);
             
-            // Update status label
             int totalHabits = habits.size();
             int completedHabits = (int) habits.stream()
                     .filter(Habit::isCompletedToday)
