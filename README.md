@@ -7,13 +7,13 @@ CMD version u can find here: https://github.com/23DP2ACuba/DVeliks_ACubacins_DP2
 ## Features
 - Add new habits with custom names.
 - Mark habits as completed for each day.
-- View habit history and progress.
+- View habit desctiption.
 - Export and import data using CSV format.
 
 
 ## File Structure
 - `src/` - Contains the Java source code.
-- `data/habits.csv` - Stores habit tracking data.
+- `data.csv` - Stores habit tracking data.
 - `README.md` - This file.
 
 
