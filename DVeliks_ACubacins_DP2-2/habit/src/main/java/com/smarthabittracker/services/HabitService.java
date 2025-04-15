@@ -1,70 +1,96 @@
 package com.smarthabittracker.services;
 
+
 import com.smarthabittracker.model.Habit;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HabitService {
-    private List<Habit> habits;
-
+    private static final String DATA_FILE = "data.csv";
+    
     public HabitService() {
-        this.habits = FileService.loadHabits();
-    }
-
-    public void addHabit(Habit habit) {
-        if (!habits.contains(habit)) {
-            habits.add(habit);
-            saveHabits();
+        // Create data file if it doesn't exist
+        try {
+            File file = new File(DATA_FILE);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            System.err.println("Failed to initialize data file: " + e.getMessage());
         }
     }
-
-    public void removeHabit(Habit habit) {
-        habits.remove(habit);
-        saveHabits();
-    }
-
-    public void updateHabit(Habit habit) {
-        int index = habits.indexOf(habit);
-        if (index != -1) {
-            habits.set(index, habit);
-            saveHabits();
+    
+    public List<Habit> getAllHabits() throws IOException {
+        List<Habit> habits = new ArrayList<>();
+        
+        // Check if file is empty
+        if (Files.size(Paths.get(DATA_FILE)) == 0) {
+            return habits;
         }
-    }    
-
-    public List<Habit> getAllHabits() {
-        return new ArrayList<>(habits);
+        
+        try (BufferedReader reader = new BufferedReader(new FileReader(DATA_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.trim().isEmpty()) {
+                    habits.add(parseHabit(line));
+                }
+            }
+        }
+        
+        return habits;
     }
-
-    public Habit findHabitByName(String name) {
-        return habits.stream()
-            .filter(habit -> habit.getName().equalsIgnoreCase(name))
-            .findFirst()
-            .orElse(null);
-    }
-
-    public void updateHabitStatus(String habitName, boolean completed) {
-        Habit habit = findHabitByName(habitName);
-        if (habit != null) {
-            habit.setCompleted(completed);
-            saveHabits();
+    
+    public void addHabit(Habit habit) throws IOException {
+        try (FileWriter writer = new FileWriter(DATA_FILE, true)) {
+            writer.write(habit.toString() + "\n");
         }
     }
-
-    public List<Habit> getCompletedHabits() {
-        return habits.stream()
-            .filter(Habit::isCompleted)
-            .collect(Collectors.toList());
+    
+    public void deleteHabit(Habit habitToDelete) throws IOException {
+        List<Habit> habits = getAllHabits();
+        habits.removeIf(habit -> habit.getName().equals(habitToDelete.getName()));
+        
+        saveAllHabits(habits);
     }
-
-    public List<Habit> getPendingHabits() {
-        return habits.stream()
-            .filter(habit -> !habit.isCompleted())
-            .collect(Collectors.toList());
+    
+    public void completeHabit(Habit habitToComplete) throws IOException {
+        List<Habit> habits = getAllHabits();
+        
+        for (Habit habit : habits) {
+            if (habit.getName().equals(habitToComplete.getName())) {
+                habit.complete();
+                break;
+            }
+        }
+        
+        saveAllHabits(habits);
     }
-
-    private void saveHabits() {
-        FileService.saveHabits(habits);
+    
+    private void saveAllHabits(List<Habit> habits) throws IOException {
+        try (FileWriter writer = new FileWriter(DATA_FILE, false)) {
+            for (Habit habit : habits) {
+                writer.write(habit.toString() + "\n");
+            }
+        }
+    }
+    
+    private Habit parseHabit(String line) {
+        String[] parts = line.split(",", 4);
+        
+        String name = parts[0];
+        String description = parts[1];
+        int streak = Integer.parseInt(parts[2]);
+        
+        LocalDate lastCompletedDate = null;
+        if (parts.length > 3 && !parts[3].equals("null")) {
+            lastCompletedDate = LocalDate.parse(parts[3]);
+        }
+        
+        return new Habit(name, description, streak, lastCompletedDate);
     }
 }

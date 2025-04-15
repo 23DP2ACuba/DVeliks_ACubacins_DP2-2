@@ -1,121 +1,85 @@
 package com.smarthabittracker.model;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class Habit {
-    private final StringProperty name = new SimpleStringProperty();
-    private final BooleanProperty completed = new SimpleBooleanProperty(false);
-    private final ObjectProperty<LocalDate> createdDate = new SimpleObjectProperty<>();
-    private final IntegerProperty streak = new SimpleIntegerProperty(0);
-    private final StringProperty description = new SimpleStringProperty();
-
-    public Habit() {
-        this.createdDate.set(LocalDate.now());
-    }
-
-    public Habit(String name) {
-        this();
-        this.name.set(name);
-    }
-
+    private String name;
+    private String description;
+    private int streak;
+    private LocalDate lastCompletedDate;
+    
     public Habit(String name, String description) {
-        this(name);
-        this.description.set(description);
+        this.name = name;
+        this.description = description;
+        this.streak = 0;
+        this.lastCompletedDate = null;
     }
-
-    public StringProperty nameProperty() {
+    
+    public Habit(String name, String description, int streak, LocalDate lastCompletedDate) {
+        this.name = name;
+        this.description = description;
+        this.streak = streak;
+        this.lastCompletedDate = lastCompletedDate;
+    }
+    
+    public String getName() {
         return name;
     }
-
-    public BooleanProperty completedProperty() {
-        return completed;
-    }
-
-    public ObjectProperty<LocalDate> createdDateProperty() {
-        return createdDate;
-    }
-
-    public IntegerProperty streakProperty() {
-        return streak;
-    }
-
-    public StringProperty descriptionProperty() {
+    
+    public String getDescription() {
         return description;
     }
-
-    public String getName() {
-        return name.get();
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
-    }
-
-    public boolean isCompleted() {
-        return completed.get();
-    }
-
-    public void setCompleted(boolean completed) {
-        if (completed) { 
-            this.completed.set(completed);
-            this.streak.set(this.streak.get() + 1);
-        }
-    }
-
-    public LocalDate getCreatedDate() {
-        return createdDate.get();
-    }
-
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate.set(createdDate);
-    }
-
+    
     public int getStreak() {
-        System.out.println("Streak: " + streak.get());
-        return streak.get();
+        return streak;
     }
-
-    public void setStreak(int streak) {
-        this.streak.set(streak);
+    
+    public LocalDate getLastCompletedDate() {
+        return lastCompletedDate;
     }
-
-    public String getDescription() {
-        return description.get();
+    
+    public void setName(String name) {
+        this.name = name;
     }
-
+    
     public void setDescription(String description) {
-        this.description.set(description);
+        this.description = description;
     }
-
+    
+    public void setStreak(int streak) {
+        this.streak = streak;
+    }
+    
+    public void setLastCompletedDate(LocalDate lastCompletedDate) {
+        this.lastCompletedDate = lastCompletedDate;
+    }
+    
+    public boolean isCompletedToday() {
+        return lastCompletedDate != null && lastCompletedDate.equals(LocalDate.now());
+    }
+    
+    public void complete() {
+        LocalDate today = LocalDate.now();
+        
+        if (lastCompletedDate == null) {
+            // First time completing the habit
+            streak = 1;
+        } else if (today.equals(lastCompletedDate)) {
+            // Already completed today, no streak change
+        } else if (today.equals(lastCompletedDate.plusDays(1))) {
+            // Completed on consecutive day, increase streak
+            streak++;
+        } else {
+            // Streak broken, restart at 1
+            streak = 1;
+        }
+        
+        lastCompletedDate = today;
+    }
+    
     @Override
     public String toString() {
-        return "Habit{" +
-                "name='" + getName() + '\'' +
-                ", completed=" + isCompleted() +
-                ", createdDate=" + getCreatedDate() +
-                ", streak=" + getStreak() +
-                ", description='" + getDescription() + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Habit habit = (Habit) o;
-        return Objects.equals(getName(), habit.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName());
+        return name + "," + description + "," + streak + "," + 
+               (lastCompletedDate != null ? lastCompletedDate.toString() : "null");
     }
 }
