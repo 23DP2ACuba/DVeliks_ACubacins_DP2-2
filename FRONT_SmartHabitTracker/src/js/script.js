@@ -80,72 +80,72 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Instruction cards data - this would typically come from an API or database
+// Instruction cards data - updated based on the application screenshot
 const instructionCardsData = [
     {
         number: 1,
-        title: "Setting Up Your Account",
-        content: "Launch the application and create your personal profile. You can customize your settings, themes, and notification preferences from the settings menu.",
+        title: "Launch the Application",
+        content: "Start by downloading and launching the Smart Habit Tracker jar file. You'll see a clean, simple interface with a table ready for your habits.",
         steps: [
-            "Download and install the application",
-            "Open the app and click 'Create Account'",
-            "Fill in your details and preferences",
-            "Save your settings"
+            "Download the jar file from our website",
+            "Ensure you have Java installed on your system",
+            "Double-click the jar file or run via command line",
+            "The main interface will appear with an empty table"
         ]
     },
     {
         number: 2,
-        title: "Creating Your First Habit",
-        content: "Add a new habit by clicking the '+' button. Give your habit a name and set your target frequency (daily, weekly, etc.).",
+        title: "Adding Your First Habit",
+        content: "Adding habits is straightforward with our simple interface. Just click the 'Add Habit' button and enter your habit name.",
         steps: [
-            "Click the '+' button in the bottom-right corner",
-            "Enter a name for your habit",
-            "Select frequency (daily, specific days, etc.)",
-            "Set reminders if needed"
+            "Click the 'Add Habit' button at the top of the window",
+            "Enter a name for your habit (e.g., 'Exercise', 'Read')",
+            "Confirm to add the habit to your tracking table",
+            "Your new habit will appear in the table with a status of 'Not Started'"
         ]
     },
     {
         number: 3,
-        title: "Tracking Daily Progress",
-        content: "Each day, open the app and mark your habits as completed. This builds your streak and keeps you motivated.",
+        title: "Viewing Your Habits",
+        content: "The main interface shows all your habits in a table format with their status and current streak count.",
         steps: [
-            "Open the app to view your habits for today",
-            "Tap the checkbox next to completed habits",
-            "View your current streak for motivation",
-            "Check weekly summary for insights"
+            "The main table displays habit name, status, streak, and actions",
+            "Use the 'View Habits' button to refresh or filter your habits",
+            "See your total habits and completion count at the bottom",
+            "Sort habits by clicking on column headers (if available)"
         ]
     },
     {
         number: 4,
-        title: "Viewing Your Statistics",
-        content: "Navigate to the Statistics tab to see your progress over time. This helps you understand your habits and identify patterns.",
+        title: "Tracking Daily Progress",
+        content: "Each day, mark your habits as complete to build your streak and stay consistent with your goals.",
         steps: [
-            "Click on the 'Statistics' tab",
-            "Select a habit to view detailed metrics",
-            "Use filters to analyze specific time periods",
-            "Export data if needed for external analysis"
+            "For each completed habit, use the action buttons in the Actions column",
+            "Mark a habit as complete to increase your streak count",
+            "The status will update to show 'Completed'",
+            "Your completion stats at the bottom will update automatically"
         ]
     },
     {
         number: 5,
-        title: "Setting Up Reminders",
-        content: "Configure reminders to help you stay on track with your habits. You can set specific times for notifications.",
+        title: "Managing Your Habits",
+        content: "You can easily modify, delete, or reset your habits as your goals and priorities change.",
         steps: [
-            "Go to habit settings by clicking the gear icon",
-            "Toggle 'Reminders' option to ON",
-            "Set preferred time for notifications",
-            "Choose repeat options (daily, weekly, etc.)"
+            "Use action buttons in the Actions column to manage each habit",
+            "Delete habits you no longer want to track",
+            "Reset streaks if needed to start fresh",
+            "Edit habit names or details as your goals evolve"
         ]
     },
     {
         number: 6,
-        title: "Customizing Your Habits",
-        content: "Make your habits more personal by adding notes, changing colors, or setting specific goals for each one.",
+        title: "Understanding Your Progress",
+        content: "The simple summary at the bottom of the app helps you track your overall progress and completion rates.",
         steps: [
-            "Long press on a habit to edit",
-            "Tap 'Customize' from the menu",
-            "Choose colors, icons, or add notes",
-            "Set specific targets if applicable"
+            "View total habit count to see how many habits you're tracking",
+            "Check completion count to see how many habits you've completed today",
+            "Compare these numbers to understand your daily success rate",
+            "Use this information to adjust your habits if needed"
         ]
     }
 ];
@@ -275,39 +275,6 @@ featureCards.forEach(card => {
     card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 });
 
-// Keyboard shortcuts functionality
-document.addEventListener('keydown', (e) => {
-    // Check if Ctrl key is pressed
-    if (e.ctrlKey) {
-        switch (e.key.toLowerCase()) {
-            case 'n':
-                alert('New Habit shortcut triggered');
-                e.preventDefault();
-                break;
-            case 't':
-                alert('Today\'s View shortcut triggered');
-                e.preventDefault();
-                break;
-            case 's':
-                alert('Statistics shortcut triggered');
-                e.preventDefault();
-                break;
-            case 'e':
-                alert('Export Data shortcut triggered');
-                e.preventDefault();
-                break;
-            case 'i':
-                alert('Import Data shortcut triggered');
-                e.preventDefault();
-                break;
-            case 'h':
-                alert('Help shortcut triggered');
-                e.preventDefault();
-                break;
-        }
-    }
-});
-
 // Add CSS class to highlight scroll position in navigation
 function highlightNavOnScroll() {
     const scrollPosition = window.scrollY;
@@ -340,12 +307,3 @@ window.addEventListener('scroll', highlightNavOnScroll);
 
 // Call once on load to set initial state
 document.addEventListener('DOMContentLoaded', highlightNavOnScroll);
-
-// Make keyboard shortcuts section stand out with a subtle blue border
-document.addEventListener('DOMContentLoaded', () => {
-    const keyboardShortcuts = document.querySelector('.keyboard-shortcuts');
-    if (keyboardShortcuts) {
-        keyboardShortcuts.style.borderLeft = '4px solid var(--primary-color)';
-        keyboardShortcuts.style.paddingLeft = '2rem';
-    }
-});

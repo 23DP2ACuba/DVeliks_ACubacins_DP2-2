@@ -20,7 +20,7 @@
             <nav>
                 <ul>
                     <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#demo" class="nav-link">Demo</a></li>
+                    <li><a href="#demo" class="nav-link">See It In Action</a></li>
                     <li><a href="#instructions" class="nav-link">How To Use</a></li>
                     <li><a href="#download" class="nav-link">Download</a></li>
                 </ul>
@@ -35,14 +35,41 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Track Your Habits,<br>Transform Your Life</h1>
-                <p>A simple yet powerful tool to help you build and maintain good habits consistently.</p>
+                <p>A simple yet powerful Java tool to help you build and maintain good habits consistently.</p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">Download Now</a>
                     <a href="#demo" class="btn btn-secondary">See Demo</a>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="/api/placeholder/500/400" alt="Smart Habit Tracker Dashboard" />
+                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Circle background -->
+                    <circle cx="20" cy="20" r="18" fill="#4c6fff"/>
+                  
+                    <!-- Dashboard frame -->
+                    <rect x="9" y="9" width="22" height="22" rx="3" fill="white"/>
+                  
+                    <!-- Top bar -->
+                    <rect x="10.5" y="10.5" width="19" height="3.5" rx="1.5" fill="#e2e8f0"/>
+                  
+                    <!-- Left sidebar -->
+                    <rect x="10.5" y="15" width="6" height="15" rx="1" fill="#f7fafc"/>
+                  
+                    <!-- Dashboard rows -->
+                    <rect x="18" y="16.5" width="10.5" height="2.5" rx="1" fill="#e2e8f0"/>
+                    <rect x="18" y="21" width="10.5" height="2.5" rx="1" fill="#e2e8f0"/>
+                    <rect x="18" y="25.5" width="10.5" height="2.5" rx="1" fill="#e2e8f0"/>
+                  
+                    <!-- Checkboxes -->
+                    <circle cx="13.5" cy="17.75" r="1.8" fill="white" stroke="#48bb78" stroke-width="1"/>
+                    <polyline points="12.8,17.75 13.5,18.5 14.8,16.8" stroke="#48bb78" stroke-width="1" fill="none"/>
+                  
+                    <circle cx="13.5" cy="22.25" r="1.8" fill="white" stroke="#48bb78" stroke-width="1"/>
+                    <polyline points="12.8,22.25 13.5,23 14.8,21.3" stroke="#48bb78" stroke-width="1" fill="none"/>
+                  
+                    <circle cx="13.5" cy="26.75" r="1.8" fill="white" stroke="#718096" stroke-width="1"/>
+                  </svg>
+                  
             </div>
         </div>
     </section>
@@ -53,31 +80,31 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Simple Tracking</h3>
+                    <p>Clear table interface to monitor your habits, status, and current streaks at a glance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
                         <i class="fas fa-plus-circle"></i>
                     </div>
-                    <h3>Custom Habits</h3>
-                    <p>Create and customize habits that matter most to your personal goals.</p>
+                    <h3>Easy Habit Management</h3>
+                    <p>Add new habits with just a few clicks using our straightforward interface.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-calendar-check"></i>
+                        <i class="fas fa-fire"></i>
                     </div>
-                    <h3>Daily Tracking</h3>
-                    <p>Mark habits as completed each day and build your streak.</p>
+                    <h3>Streak Counting</h3>
+                    <p>Stay motivated by watching your habit streaks grow day after day.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>Progress Insights</h3>
-                    <p>View your habit history and progress over time with simple visuals.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-file-csv"></i>
-                    </div>
-                    <h3>CSV Support</h3>
-                    <p>Export and import your data using CSV format for easy backup.</p>
+                    <h3>Stats Summary</h3>
+                    <p>Track total habits and completion rates right at the bottom of your screen.</p>
                 </div>
             </div>
         </div>
@@ -88,36 +115,68 @@
             <h2>See It In Action</h2>
             <div class="demo-content">
                 <div class="demo-tabs">
-                    <button class="tab-btn active" data-tab="add-habit">Add Habit</button>
-                    <button class="tab-btn" data-tab="track-habit">Track Daily</button>
-                    <button class="tab-btn" data-tab="view-progress">View Progress</button>
+                    <button class="tab-btn active" data-tab="app-interface">App Interface</button>
+                    <button class="tab-btn" data-tab="add-habit">Add Habit</button>
+                    <button class="tab-btn" data-tab="view-habits">View Habits</button>
                 </div>
                 <div class="demo-panel">
-                    <div class="tab-content active" id="add-habit">
+                    <div class="tab-content active" id="app-interface">
                         <div class="demo-image">
-                            <img src="/api/placeholder/600/350" alt="Adding a new habit" />
+                            <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                                <!-- App Interface Icon -->
+                                <g transform="translate(10, 5)">
+                                  <rect x="0" y="0" width="30" height="30" rx="3" fill="#f5f7ff" stroke="#4c6fff" stroke-width="1"/>
+                                  <rect x="3" y="3" width="24" height="4" rx="1" fill="#4c6fff"/>
+                                  <rect x="3" y="9" width="24" height="4" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                  <rect x="3" y="15" width="24" height="4" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                  <rect x="3" y="21" width="24" height="4" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                  <text x="15" y="6" font-family="sans-serif" font-size="2.5" fill="white" text-anchor="middle">Habits</text>
+                                </g>
+                              </svg>
                         </div>
                         <div class="demo-description">
-                            <h3>Create Custom Habits</h3>
-                            <p>Define new habits with personalized names, goals, and frequency. Start with simple habits and gradually build your routine.</p>
+                            <h3>Clean Interface Design</h3>
+                            <p>The Smart Habit Tracker features a clean, minimalist interface with a clear table showing your habits, their status, current streak, and available actions. The summary at the bottom shows your total habits and completion rate.</p>
                         </div>
                     </div>
-                    <div class="tab-content" id="track-habit">
+                    <div class="tab-content" id="add-habit">
                         <div class="demo-image">
-                            <img src="/api/placeholder/600/350" alt="Tracking daily habits" />
+                            <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                                <g transform="translate(45, 5)">
+                                    <rect x="0" y="0" width="30" height="30" rx="3" fill="#f5f7ff" stroke="#4c6fff" stroke-width="1"/>
+                                    <rect x="5" y="10" width="20" height="15" rx="2" fill="white" stroke="#4c6fff" stroke-width="0.75"/>
+                                    <rect x="5" y="10" width="20" height="5" rx="2" fill="#4c6fff"/>
+                                    <text x="15" y="14" font-family="sans-serif" font-size="3" fill="white" text-anchor="middle">Add Habit</text>
+                                    <rect x="7" y="17" width="16" height="3" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                    <circle cx="15" cy="5" r="3" fill="#4c6fff"/>
+                                    <line x1="15" y1="3" x2="15" y2="7" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                                    <line x1="13" y1="5" x2="17" y2="5" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                                  </g>
+                            </svg>
                         </div>
                         <div class="demo-description">
-                            <h3>Track Daily Progress</h3>
-                            <p>Easily mark habits as completed each day. The intuitive interface makes daily tracking quick and satisfying.</p>
+                            <h3>Adding New Habits</h3>
+                            <p>Click the "Add Habit" button to create a new habit. Enter the habit name and it will appear in your tracking table, ready for you to start building your streak.</p>
                         </div>
                     </div>
-                    <div class="tab-content" id="view-progress">
+                    <div class="tab-content" id="view-habits">
                         <div class="demo-image">
-                            <img src="/api/placeholder/600/350" alt="Viewing habit progress" />
+                            <svg viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="translate(80, 5)">
+                                <rect x="0" y="0" width="30" height="30" rx="3" fill="#f5f7ff" stroke="#4c6fff" stroke-width="1"/>
+                                <rect x="5" y="7" width="20" height="3" rx="1" fill="#4c6fff"/>
+                                <rect x="5" y="12" width="20" height="3" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                <rect x="5" y="17" width="20" height="3" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                <rect x="5" y="22" width="20" height="3" rx="1" fill="white" stroke="#e2e8f0" stroke-width="0.5"/>
+                                <circle cx="7.5" cy="13.5" r="1" fill="#48bb78"/>
+                                <circle cx="7.5" cy="18.5" r="1" fill="#48bb78"/>
+                                <circle cx="7.5" cy="23.5" r="1" stroke="#718096" stroke-width="0.5" fill="white"/>
+                              </g>
+                            </svg>
                         </div>
                         <div class="demo-description">
-                            <h3>Monitor Your Progress</h3>
-                            <p>View detailed statistics and visual representations of your habit history to stay motivated and see your improvement over time.</p>
+                            <h3>View and Manage Your Habits</h3>
+                            <p>The "View Habits" button allows you to see all your current habits. Mark habits as complete, delete unwanted habits, or check your progress all from one convenient view.</p>
                         </div>
                     </div>
                 </div>
@@ -130,8 +189,7 @@
             <h2>How To Use Smart Habit Tracker</h2>
             <div class="instructions-container">
                 <div class="instructions-grid" id="instructions-grid">
-                    <!-- Initial instruction cards - these will be duplicated by JavaScript for infinite scroll -->
-                    <!-- Cards will be loaded dynamically via JavaScript -->
+                    <!-- Instructions cards will be loaded dynamically via JavaScript -->
                 </div>
                 <!-- Loading indicator for infinite scroll -->
                 <div class="loading-indicator" id="loading-indicator">
@@ -169,7 +227,8 @@
                     <ol>
                         <li>Download the JAR file</li>
                         <li>Double-click to run (or use <code>java -jar SmartHabitTracker.jar</code>)</li>
-                        <li>Start tracking your habits!</li>
+                        <li>Use "Add Habit" to create your first habit</li>
+                        <li>Track your progress daily!</li>
                     </ol>
                 </div>
             </div>
@@ -185,7 +244,7 @@
                 </div>
                 <div class="footer-links">
                     <a href="#features">Features</a>
-                    <a href="#demo">Demo</a>
+                    <a href="#demo">See It In Action</a>
                     <a href="#instructions">How To Use</a>
                     <a href="#download">Download</a>
                 </div>
