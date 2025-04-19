@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,7 +25,10 @@ public class HabitTrackerUI extends Application {
     private ObservableList<Habit> habitData;
     private HabitService habitService;
     private Stage primaryStage;
-    private Label statusLabel;
+    private Label totalHabitsLabel;
+    private Label completedHabitsLabel;
+    private Label averageStreakLabel;
+    private Label totalCompletionsLabel;
 
     @Override
     public void start(Stage primaryStage) {
@@ -42,7 +46,7 @@ public class HabitTrackerUI extends Application {
         habitTable = createHabitTable();
         root.setCenter(habitTable);
         
-        HBox bottomSection = createBottomSection();
+        VBox bottomSection = createBottomSection();
         root.setBottom(bottomSection);
         
         Scene scene = new Scene(root, 600, 500);
@@ -143,12 +147,26 @@ public class HabitTrackerUI extends Application {
         return table;
     }
     
-    private HBox createBottomSection() {
-        HBox bottomSection = new HBox(10);
+    private VBox createBottomSection() {
+        VBox bottomSection = new VBox(5);
         bottomSection.setPadding(new Insets(10, 0, 0, 0));
+        bottomSection.setAlignment(Pos.CENTER_LEFT);
         
-        statusLabel = new Label("Total Habits: 0  Completed: 0");
-        bottomSection.getChildren().add(statusLabel);
+        GridPane statsGrid = new GridPane();
+        statsGrid.setHgap(20);
+        statsGrid.setVgap(5);
+        
+        totalHabitsLabel = new Label("Total Habits: 0");
+        completedHabitsLabel = new Label("Completed Today: 0");
+        averageStreakLabel = new Label("Average Streak: 0.0");
+        totalCompletionsLabel = new Label("Total Completions: 0");
+        
+        statsGrid.add(totalHabitsLabel, 0, 0);
+        statsGrid.add(completedHabitsLabel, 1, 0);
+        statsGrid.add(averageStreakLabel, 0, 1);
+        statsGrid.add(totalCompletionsLabel, 1, 1);
+        
+        bottomSection.getChildren().add(statsGrid);
         
         return bottomSection;
     }
@@ -173,15 +191,33 @@ public class HabitTrackerUI extends Application {
             habitData = FXCollections.observableArrayList(habits);
             habitTable.setItems(habitData);
             
-            int totalHabits = habits.size();
-            int completedHabits = (int) habits.stream()
-                    .filter(Habit::isCompletedToday)
-                    .count();
-            statusLabel.setText("Total Habits: " + totalHabits + "  Completed: " + completedHabits);
+            updateStats(habits);
         } catch (IOException e) {
             showAlert(Alert.AlertType.ERROR, "Error", 
                       "Failed to load habits: " + e.getMessage());
         }
+    }
+    
+    private void updateStats(List<Habit> habits) {
+        int totalHabits = habits.size();
+        int completedToday = 0;
+        int totalCompletions = 0;
+        double totalStreak = 0;
+        
+        for (Habit habit : habits) {
+            if (habit.isCompletedToday()) {
+                completedToday++;
+            }
+            totalStreak += habit.getStreak();
+            totalCompletions += habit.getTotalCompletions();
+        }
+        
+        double averageStreak = totalHabits > 0 ? totalStreak / totalHabits : 0;
+        
+        totalHabitsLabel.setText("Total Habits: " + totalHabits);
+        completedHabitsLabel.setText("Completed Today: " + completedToday);
+        averageStreakLabel.setText(String.format("Average Streak: %.1f", averageStreak));
+        totalCompletionsLabel.setText("Total Completions: " + totalCompletions);
     }
     
     private void showAlert(Alert.AlertType alertType, String title, String message) {

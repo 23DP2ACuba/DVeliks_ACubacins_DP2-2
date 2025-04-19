@@ -1,6 +1,5 @@
 package com.smarthabittracker.services;
 
-
 import com.smarthabittracker.model.Habit;
 
 import java.io.*;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HabitService {
-    private static final String DATA_FILE = "data.csv";
+    private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
     
     public HabitService() {
         try {
@@ -69,6 +68,27 @@ public class HabitService {
         saveAllHabits(habits);
     }
     
+    public double getAverageStreak(List<Habit> habits) {
+        if (habits.isEmpty()) {
+            return 0;
+        }
+        
+        int totalStreak = 0;
+        for (Habit habit : habits) {
+            totalStreak += habit.getStreak();
+        }
+        
+        return (double) totalStreak / habits.size();
+    }
+    
+    public int getTotalCompletions(List<Habit> habits) {
+        int total = 0;
+        for (Habit habit : habits) {
+            total += habit.getTotalCompletions();
+        }
+        return total;
+    }
+    
     private void saveAllHabits(List<Habit> habits) throws IOException {
         try (FileWriter writer = new FileWriter(DATA_FILE, false)) {
             for (Habit habit : habits) {
@@ -78,17 +98,19 @@ public class HabitService {
     }
     
     private Habit parseHabit(String line) {
-        String[] parts = line.split(",", 4);
+        String[] parts = line.split(",", 5);
         
         String name = parts[0];
         String description = parts[1];
         int streak = Integer.parseInt(parts[2]);
         
+        int totalCompletions = (parts.length > 3) ? Integer.parseInt(parts[3]) : streak;
+        
         LocalDate lastCompletedDate = null;
-        if (parts.length > 3 && !parts[3].equals("null")) {
-            lastCompletedDate = LocalDate.parse(parts[3]);
+        if (parts.length > 4 && !parts[4].equals("null")) {
+            lastCompletedDate = LocalDate.parse(parts[4]);
         }
         
-        return new Habit(name, description, streak, lastCompletedDate);
+        return new Habit(name, description, streak, totalCompletions, lastCompletedDate);
     }
 }
