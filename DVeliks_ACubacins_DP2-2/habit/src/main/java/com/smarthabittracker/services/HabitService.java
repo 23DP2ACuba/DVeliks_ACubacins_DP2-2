@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HabitService {
-    private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
+    private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
     
     public HabitService() {
         try {
