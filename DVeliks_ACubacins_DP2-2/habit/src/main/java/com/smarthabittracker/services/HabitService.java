@@ -15,7 +15,7 @@ import com.smarthabittracker.model.Habit;
 
 public class HabitService {
     // private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
-    private static final String DATA_FILE = "C:\\Users\\doliv\\Downloads\\DVeliks_ACubacins_DP2-2\\DVeliks_ACubacins_DP2-2\\habit\\src\\main\\java\\com\\smarthabittracker\\services\\data.csv";
+    private static final String DATA_FILE = "src/main/java/com/smarthabittracker/services/data.csv";
     public HabitService() {
         try {
             File file = new File(DATA_FILE);
