@@ -1,17 +1,21 @@
 package com.smarthabittracker.services;
 
-import com.smarthabittracker.model.Habit;
-
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.smarthabittracker.model.Habit;
+
 public class HabitService {
-    private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
-    
+    // private static final String DATA_FILE = "DVeliks_ACubacins_DP2-2/habit/src/main/java/com/smarthabittracker/services/data.csv";
+    private static final String DATA_FILE = "C:\\Users\\doliv\\Downloads\\DVeliks_ACubacins_DP2-2\\DVeliks_ACubacins_DP2-2\\habit\\src\\main\\java\\com\\smarthabittracker\\services\\data.csv";
     public HabitService() {
         try {
             File file = new File(DATA_FILE);
