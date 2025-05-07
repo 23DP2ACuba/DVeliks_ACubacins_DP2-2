@@ -34,3 +34,13 @@ All data is stored in a `CSV` file for easy editing, sharing, or backup.
 
 - The app currently supports command-line interface (CLI) only.
 - All habit progress is saved in `data.csv` — make sure to keep a backup if needed!
+
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/23DP2ACuba/DVeliks_ACubacins_DP2-2_console_ver.git
+
